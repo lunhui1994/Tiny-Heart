@@ -22,6 +22,10 @@ var ane;
 
 var mom;
 
+var babyTail = [];
+var babyEye = [];
+var babyBody = [];
+
 document.body.onload = game;
 
 function game() {
@@ -51,23 +55,44 @@ function init() {
 	mom = new momObj();
 	mom.init();
 
+	baby = new babyObj();
+	baby.init();
+
 	mx = canWidth * 0.5;
 	my = canHeight * 0.5;
 
+	for(var i =0; i < 8;i++ )
+	{
+		babyTail[i]= new Image();
+		babyTail[i].src = "./src/babyTail" + i + ".png";
+	}
+	for(var i =0; i < 2;i++ )
+	{
+		babyEye[i]= new Image();
+		babyEye[i].src = "./src/babyEye" + i + ".png";
+	}
+	for(var i =0; i < 20;i++ )
+	{
+		babyBody[i]= new Image();
+		babyBody[i].src = "./src/babyFade" + i + ".png";
+	}
 }
 
 function gameloop() {
 	window.requestAnimFrame(gameloop);//setInterval setTimeout  fps:frame per second;
-	var now = Date.now();
+	var now = Date.now();//返回现在的时间单位毫秒
 	deltaTime = now - lastTime;
 	lastTime = now;
 
+	if (deltaTime > 50 ){ deltaTime = 50}
+	momFruitsCollision();
 	drawBackground();
 	ane.draw();
 	fruitMonitor();
 	fruit.draw();
 	ctx1.clearRect(0,0,canWidth,canHeight);
 	mom.draw();
+	baby.draw();
 	//console.log(lastTime);
 }
 

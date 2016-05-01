@@ -7,8 +7,10 @@ var aneObj = function () {
 }
 aneObj.prototype.num = 50;
 
-aneObj.prototype.init = function () {
-    for (var i = 0; i <= this.num; i++) {
+aneObj.prototype.init = function ()
+{
+    for (var i = 0; i <= this.num; i++)
+    {
         this.x[i] = i * 16 + Math.random() * 20;//[0,1)
         this.len[i] = 200 + Math.random() * 50;
     }
@@ -18,11 +20,13 @@ aneObj.prototype.init = function () {
 aneObj.prototype.draw = function ()
 {
     ctx2.save();//save();  restore();   样式定义只在这两个api之间起作用
-    ctx2.strokeStyle = "#3b154e";//所有ane都有的属性就在for循环外，更加简洁。
+    // 所有ane都有的属性就在for循环外，更加简洁。
+    ctx2.strokeStyle = "#3b154e";//笔触颜色属性
     ctx2.lineWidth = 20;
-    ctx2.lineCap = "round";
+    ctx2.lineCap = "round";//绘制圆形的结束线帽：
     ctx2.globalAlpha= 0.6;     //给ane一个透明度；
-    for (var i = 0; i <= this.num; i++) {
+    for (var i = 0; i <= this.num; i++)
+    {
         //beginPath,moveTo,lineTo.stroke,strokeStyle,lineWidth,lineCap,
         ctx2.beginPath();
         ctx2.moveTo(this.x[i], canHeight);

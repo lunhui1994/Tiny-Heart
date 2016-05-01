@@ -67,18 +67,26 @@ fruitObj.prototype.born = function (i) {
     this.l[i] = 0;
     this.alive[i] = true;
     var ran = Math.random();
-    if (ran < 0.3) {
+    if (ran < 0.3)
+    {
         this.fruitType[i] = "blue";
     }
-    else {
+    else
+    {
         this.fruitType[i] = "orange";
     }
 
 }
 
-function fruitMonitor() {
+fruitObj.prototype.dead = function(i)
+{
+    this.alive[i] = false;
+}
+function fruitMonitor()
+{
     var num = 0;
-    for (var i = 0; i < fruit.num; i++) {
+    for (var i = 0; i < fruit.num; i++)
+    {
         if (fruit.alive[i]) num++;
     }
     if (num < 15) {
@@ -88,8 +96,10 @@ function fruitMonitor() {
     }
 }
 function sendFruit() {
-    for (var i = 0; i < fruit.num; i++) {
-        if (!fruit.alive[i]) {
+    for (var i = 0; i < fruit.num; i++)
+    {
+        if (!fruit.alive[i])
+        {
             fruit.born(i);
             return;
         }
