@@ -69,14 +69,16 @@ babyObj.prototype.draw = function()
 
     //baby body
     this.babyBodyTimer += deltaTime;
-    if (this.babyBodyTimer > 500)
+    if (this.babyBodyTimer > 200)
     {
         this.babyBodyCount = this.babyBodyCount + 1 ;
         this.babyBodyTimer = 0;//必须把时间归零否则就一直加1了。
         if (this.babyBodyCount > 19)
         {
             this.babyBodyCount = 19;
+            //game over
             //alert("游戏结束");
+            data.gameOver = "true";
         }
 
     }
