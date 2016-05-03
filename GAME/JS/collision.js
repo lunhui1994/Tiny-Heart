@@ -53,15 +53,15 @@ function momBabyCollision()
         {
             //baby recover
             //baby.babyBodyCount = baby.babyBodyCount - data.fruitNum;
-          /*  if((baby.babyBodyCount - data.fruitNum) < 0 )
+            if((baby.babyBodyCount - data.fruitNum) < 0 )
             {
                 baby.babyBodyCount = 0;
             }
             else
             {
                 baby.babyBodyCount = baby.babyBodyCount - data.fruitNum;
-            }*/
-            baby.babyBodyCount = 0;
+            }
+            //baby.babyBodyCount = 0;
             //data ->0
             data.addScore();
             //data.reset();
