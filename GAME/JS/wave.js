@@ -35,7 +35,7 @@ waveObj.prototype.draw = function()
             if ( this.r[i] > 60)
             {
                 this.alive[i] = false;
-                break;
+                break;//防止 this.r继续增大
             }
             var alpha = 1 - this.r[i] / 60;//可能是负值，作为负值时透明度会直接没显示，so  break；
             //api canvas arc绘制圆形的特效
@@ -61,7 +61,7 @@ waveObj.prototype.born = function(x,y)
             this.r[i] = 10;
             this.x[i] = x;
             this.y[i] = y;
-            console.log("born");
+            //console.log("born");
             return;
         }
 

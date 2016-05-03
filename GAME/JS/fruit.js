@@ -9,6 +9,7 @@ var fruitObj = function () {
     this.spd = [];
     this.fruitType = [];
     this.y = [];
+    this.aneNO = [];
 }
 
 
@@ -22,6 +23,7 @@ fruitObj.prototype.init = function () {
         this.y[i] = 0;
         this.l[i] = 0;
         this.spd[i] = Math.random() * 0.017 + 0.003;//[0.005,0.02)
+        this.aneNO[i] = 0;
         this.fruitType[i] = "";
     }
     this.orange.src = "./src/fruit.png";
@@ -41,13 +43,19 @@ fruitObj.prototype.draw = function () {
             var pic = this.orange;
              }
             if (this.l[i] <= 14) {
-                this.l[i] += this.spd[i] * deltaTime;//果实变大‘
+                this.x[i] = ane.headx[this.aneNO[i]];
+                this.y[i] = ane.heady[this.aneNO[i]];
+                this.l[i] += this.spd[i] * deltaTime;
+                //果实变大
+                ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5, this.l[i], this.l[i]);
             }
             else {
                 this.y[i] -= this.spd[i] * 7 * deltaTime;//可在此增加倍数加快减慢果实漂浮速度；
+                ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5, this.l[i], this.l[i]);
             }
 
-            ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5, this.l[i], this.l[i]);//drawImage内五个数据  对象，x坐标，y坐标，宽，高
+            //ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5, this.l[i], this.l[i]);
+            //drawImage内五个数据  对象，x坐标，y坐标，宽，高
             if (this.y[i] <= 10) {
                 this.alive[i] = false;
             }
@@ -61,9 +69,8 @@ fruitObj.prototype.draw = function () {
 
 fruitObj.prototype.born = function (i) {
 
-    var aneID = Math.floor(Math.random() * ane.num);//随机获得一个ane的id号
-    this.x[i] = ane.x[aneID];
-    this.y[i] = canHeight - ane.len[aneID];
+    //随机获得一个ane的id号
+    this.aneNO[i] = Math.floor(Math.random() * ane.num);
     this.l[i] = 0;
     this.alive[i] = true;
     var ran = Math.random();

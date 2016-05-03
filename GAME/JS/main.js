@@ -37,6 +37,8 @@ var data;
 var wave;
 var halo;
 
+var dust;
+var dustPic = [];
 
 document.body.onload = game;
 
@@ -81,6 +83,9 @@ function init() {
 	halo = new haloObj();
 	halo.init();
 
+	dust = new dustObj();
+	dust.init();
+
 	mx = canWidth * 0.5;
 	my = canHeight * 0.5;
 
@@ -122,6 +127,11 @@ function init() {
 	ctx1.font = "20px Verdana";
 	ctx1.textAlign = "center";
 
+	for(var i = 0 ; i< 7 ; i++)
+	{
+		dustPic[i] = new Image();
+		dustPic[i].src = "./src/dust" + i + ".png";
+	}
 
 }
 //循环
@@ -144,6 +154,7 @@ function gameloop() {
 	data.draw();
 	wave.draw();
 	halo.draw();
+	dust.draw();
 	//console.log(lastTime);
 }
 
