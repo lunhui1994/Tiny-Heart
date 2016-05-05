@@ -1,5 +1,6 @@
 /**
  * Created by Zsf on 2016/5/1.
+ *    data  UI数据
  */
 var dataObj = function()
 {
@@ -8,6 +9,7 @@ var dataObj = function()
     this.score = 0;
     this.gameOver = false;
     this.alpha = 0;
+    this.name = "";
 
 }
 
@@ -29,6 +31,7 @@ dataObj.prototype.draw = function()
     //ctx1.fillText("num: " + this.fruitNum,w * 0.5, h - 50);
     //ctx1.fillText("double: " + this.double,w * 0.5, h - 80);
     ctx1.fillText("score: " +this.score,w * 0.5, h - 20);
+    ctx1.fillText("User Name: " +this.name,w * 0.5, h - 40);
     if (this.gameOver)
     {
         this.alpha += deltaTime * 0.0001;

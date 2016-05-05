@@ -26,7 +26,7 @@ babyObj.prototype.init = function()
     this.angle = 0;
     this.x = canWidth * 0.5 + 50;
     this.y = canHeight * 0.5 + 50;
-    this.babyBody.src = "./src/babyFade0.png"
+    //this.babyBody.src = "./src/babyFade0.png"
     //this.babyEye.src = "./src/babyEye0.png"
     //this.babyTail.src = "./src/babyTail0.png"
 
@@ -69,7 +69,7 @@ babyObj.prototype.draw = function()
 
     //baby body
     this.babyBodyTimer += deltaTime;
-    if (this.babyBodyTimer > 500)//调节小鱼身体变化的速度。
+    if (this.babyBodyTimer > 1000)//调节小鱼身体变化的速度。
     {
         this.babyBodyCount = this.babyBodyCount + 1 ;
         this.babyBodyTimer = 0;//必须把时间归零否则就一直加1了。

@@ -1,5 +1,6 @@
 /**
  * Created by Zsf on 2016/4/28.
+ * ane 海葵
  */
 var aneObj = function ()
 {

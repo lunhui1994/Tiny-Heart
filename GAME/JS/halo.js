@@ -1,5 +1,6 @@
 /**
  * Created by Zsf on 2016/5/1.
+ * halo  大鱼和小鱼碰撞之后的光环  显示
  */
 var haloObj = function()
 {
@@ -9,7 +10,7 @@ var haloObj = function()
     this.r = [];
 
 }
-haloObj.prototype.num = 5;
+haloObj.prototype.num = 10;
 haloObj.prototype.init = function()
 {
     for (var i = 0; i < this.num; i++ )

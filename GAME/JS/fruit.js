@@ -74,7 +74,7 @@ fruitObj.prototype.born = function (i) {
     this.l[i] = 0;
     this.alive[i] = true;
     var ran = Math.random();
-    if (ran < 0.3)
+    if (ran < 0.1)//控制蓝色果实出现的概率
     {
         this.fruitType[i] = "blue";
     }

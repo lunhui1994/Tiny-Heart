@@ -1,5 +1,6 @@
 /**
  * Created by Zsf on 2016/5/3.
+ *  dust  海中的漂浮物
  */
 var dustObj = function ()
 {

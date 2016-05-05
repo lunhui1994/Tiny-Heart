@@ -18,6 +18,8 @@ function momFruitsCollision()
                     fruit.dead(i);
                     if(fruit.fruitType[i] == "blue")
                     {
+                        //我在这里让大鱼在吃到蓝色果实的时候直接会中毒身亡。小鱼就会死掉。
+                        baby.babyBodyCount = 19;
                         data.double = 2;
                     }
                     if(fruit.fruitType[i] == "orange")

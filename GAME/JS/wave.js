@@ -1,5 +1,6 @@
 /**
  * Created by Zsf on 2016/5/1.
+ * wave  大鱼吃到果实的涟漪
  */
 
 var waveObj = function ()
