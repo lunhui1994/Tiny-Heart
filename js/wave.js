@@ -3,47 +3,39 @@
  * wave  大鱼吃到果实的涟漪
  */
 
-var waveObj = function ()
-{
+var waveObj = function () {
     this.x = [];
     this.y = [];
     this.alive = [];
     this.r = [];
-
 }
 
 waveObj.prototype.num = 10;
-waveObj.prototype.init = function()
-{
-    for(var i = 0; i < this.num; i++ )
-    {
+waveObj.prototype.init = function () {
+    for (var i = 0; i < this.num; i++) {
         this.alive[i] = false;
         this.r[i] = 0;
     }
 }
 
-waveObj.prototype.draw = function()
-{
+waveObj.prototype.draw = function () {
     ctx1.save();
     ctx1.lineWidth = 2;
     ctx1.shadowBlur = 10;
     ctx1.shadowColor = "white";
-    for (var i = 0; i < this.num; i++)
-    {
-        if(this.alive[i])
-        {
+    for (var i = 0; i < this.num; i++) {
+        if (this.alive[i]) {
             this.r[i] += deltaTime * 0.04;
-            if ( this.r[i] > 60)
-            {
+            if (this.r[i] > 60) {
                 this.alive[i] = false;
                 break;//防止 this.r继续增大
             }
             var alpha = 1 - this.r[i] / 60;//可能是负值，作为负值时透明度会直接没显示，so  break；
             //api canvas arc绘制圆形的特效
             ctx1.beginPath();
-            ctx1.arc(this.x[i],this.y[i],this.r[i], 0 , Math.PI * 2)
+            ctx1.arc(this.x[i], this.y[i], this.r[i], 0, Math.PI * 2)
             ctx1.closePath();
-            ctx1.strokeStyle = "rgba(255,255,255,"+ alpha + ")";
+            ctx1.strokeStyle = "rgba(255,255,255," + alpha + ")";
             ctx1.stroke();
             //draw
         }
@@ -51,18 +43,14 @@ waveObj.prototype.draw = function()
     ctx1.restore();
 }
 
-waveObj.prototype.born = function(x,y)
-{
-    for (var i = 0; i < this.num; i++)
-    {
-        if (!this.alive[i])
-        {
+waveObj.prototype.born = function (x, y) {
+    for (var i = 0; i < this.num; i++) {
+        if (!this.alive[i]) {
             //born
             this.alive[i] = true;
             this.r[i] = 10;
             this.x[i] = x;
             this.y[i] = y;
-            //console.log("born");
             return;
         }
 

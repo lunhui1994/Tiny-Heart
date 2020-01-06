@@ -70,8 +70,6 @@ function momBabyCollision()
             mom.momBodyCount = 0 ;
             //draw halo
             halo.born(baby.x,baby.y);
-
-
         }
     }
 
